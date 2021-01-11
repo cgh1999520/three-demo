@@ -2,7 +2,7 @@
 
 > 下载及运行 
 
-  yarn start or npm run start    ---(执行前请先执行依赖下载 yarn install or npm install)
+* yarn start or npm run start    ---(执行前请先执行依赖下载 yarn install or npm install)
  
 ------
 
