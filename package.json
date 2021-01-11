@@ -76,6 +76,15 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
+  "keywords": [
+    "react",
+    "js",
+    "three.js",
+    "react.js",
+    "demo",
+    "学习",
+    "列子"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",
