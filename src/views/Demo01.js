@@ -15,7 +15,7 @@ export default class Demo01 extends React.Component {
         this.camera = new THREE.PerspectiveCamera(75, demo01Box.clientWidth / demo01Box.clientHeight, 0.1, 1000);
         // 设置立方体容器及参数配置
         const geometry = new THREE.BoxGeometry();
-        const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+        const material = new THREE.MeshBasicMaterial({color: '#666666'});
         this.cube = new THREE.Mesh(geometry, material);
         // 给场景添加内容。
         this.scene.add( this.cube);

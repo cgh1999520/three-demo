@@ -22,10 +22,10 @@ export default class Demo02 extends React.Component {
         controls.update();
 
         //  给场景添加颜色
-        const light = new THREE.HemisphereLight('blue', 'green', 1);
+        const light = new THREE.HemisphereLight('#999999', '#333333', 1);
         this.scene.add(light);
 
-        const light1 = new THREE.DirectionalLight('red', 1);
+        const light1 = new THREE.DirectionalLight('#666666', 1);
         light1.position.set(0, 0, 0);
         light1.target.position.set(-5, 0, 0);
         this.scene.add(light1);
