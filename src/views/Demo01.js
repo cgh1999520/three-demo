@@ -1,14 +1,7 @@
 import React from 'react';
 import * as THREE from 'three'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import '../styles/demo01.less'
 
 export default class Demo01 extends React.Component {
-    // eslint-disable-next-line no-useless-constructor
-    constructor(query) {
-        super(query);
-    }
-
     componentDidMount() {
         // 创建一个渲染器
         this.renderer = new THREE.WebGLRenderer();
@@ -23,27 +16,27 @@ export default class Demo01 extends React.Component {
         // 设置立方体容器及参数配置
         const geometry = new THREE.BoxGeometry();
         const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-        const cube = new THREE.Mesh(geometry, material);
+        this.cube = new THREE.Mesh(geometry, material);
         // 给场景添加内容。
-        this.scene.add(cube);
-        this.camera.position.z = 5;
+        this.scene.add( this.cube);
+        this.camera.position.z = 2;
         // 把相机及场景渲染至渲染器上
         this.renderer.render(this.scene, this.camera);
 
-        let that = this;
-        function anmin() {
-            requestAnimationFrame(anmin)
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
-            that.renderer.render(that.scene, that.camera);
-        }
-        // anmin();
-        const loader = new GLTFLoader();
-        loader.load( '/model/demo1/Models/GLTF format/driveway_long.glb', function ( gltf ) {
-            that.scene.add( gltf.scene );
-        }, undefined, function ( error ) {
-            console.error( error );
-        } );
+        // 初始化动画
+        this.addAnimation = this.addAnimation.bind(this)
+        this.addAnimation();
+    }
+
+    /**
+     * @description: 添加动画
+     * @date 2021/1/11
+     */
+    addAnimation() {
+        requestAnimationFrame(this.addAnimation)
+        this.cube.rotation.x += 0.01;
+        this.cube.rotation.y += 0.01;
+        this.renderer.render(this.scene, this.camera);
     }
 
     render() {
