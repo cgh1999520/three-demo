@@ -1,5 +1,6 @@
 import React from 'react';
 import * as THREE from 'three'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import '../styles/demo01.less'
 
 export default class Demo01 extends React.Component {
@@ -28,9 +29,24 @@ export default class Demo01 extends React.Component {
         this.camera.position.z = 5;
         // 把相机及场景渲染至渲染器上
         this.renderer.render(this.scene, this.camera);
+
+        let that = this;
+        function anmin() {
+            requestAnimationFrame(anmin)
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            that.renderer.render(that.scene, that.camera);
+        }
+        // anmin();
+        const loader = new GLTFLoader();
+        loader.load( '/model/demo1/Models/GLTF format/driveway_long.glb', function ( gltf ) {
+            that.scene.add( gltf.scene );
+        }, undefined, function ( error ) {
+            console.error( error );
+        } );
     }
 
     render() {
-        return <div id="demo01-box"></div>
+        return <div id="demo01-box"/>
     }
 }
