@@ -13,23 +13,23 @@ export default class Demo02 extends React.Component {
 
         // 新建一个场景及相机， 场景作为添加内容桥梁， 不同的场景可能存在多个”相机“
         this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(100, 2, 0.1, 100);
-        this.camera.position.set(20, 60, 10);
+        this.camera = new THREE.PerspectiveCamera(60, 1);
+        this.camera.position.set(10, 10, 10);
 
         // 创建控制器，使可以旋转拖拽缩放
         const controls = new OrbitControls(this.camera, demo02Box);
-        controls.target.set(0, 5, 0);
+        controls.target.set(0, 2, 0);
         controls.update();
 
         //  给场景添加颜色
-        const light = new THREE.HemisphereLight('#999999', '#333333', 1);
-        this.scene.add(light);
-
-        const light1 = new THREE.DirectionalLight('#666666', 1);
-        light1.position.set(0, 0, 0);
-        light1.target.position.set(-5, 0, 0);
-        this.scene.add(light1);
-        this.scene.add(light1.target);
+        this.scene.add(new THREE.HemisphereLight('#999999', '#333333', 1));
+        this.scene.add(new THREE.DirectionalLight('#666666', 1));
+        this.scene.add(new THREE.LineBasicMaterial( {
+            color: 0xffffff,
+            linewidth: 1,
+            linecap: 'round', //ignored by WebGLRenderer
+            linejoin:  'round' //ignored by WebGLRenderer
+        } ))
 
         // 加载 obj 模型
         const objLoader = new OBJLoader2();
