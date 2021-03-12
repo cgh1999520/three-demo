@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {v5} from 'uuid'
 import * as THREE from "three";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+
 export default class ThreeStage extends React.Component {
 
     constructor(props) {

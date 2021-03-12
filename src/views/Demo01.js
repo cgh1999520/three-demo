@@ -3,9 +3,13 @@ import * as THREE from 'three'
 import ThreeStage from "../component/ThreeStage";
 
 export default class Demo01 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.threeStage = React.createRef()
+    }
+
     componentDidMount() {
-        this.threeStage = this.refs.threeStage;
-        const threeStage = this.threeStage;
+        const threeStage = this.threeStage.current;
 
         // 设置立方体容器及参数配置
         const geometry = new THREE.BoxGeometry();
@@ -14,7 +18,7 @@ export default class Demo01 extends React.Component {
 
         this.cube = new THREE.Mesh(geometry, material);
         // 给场景添加内容。
-        threeStage.scene.add( this.cube);
+        threeStage.scene.add(this.cube);
         threeStage.camera.position.z = 2;
         // 把相机及场景渲染至渲染器上
         threeStage.renderer.render(threeStage.scene, threeStage.camera);
@@ -29,11 +33,11 @@ export default class Demo01 extends React.Component {
      * @date 2021/1/11
      */
     addAnimation() {
-        const threeStage = this.threeStage;
+        const threeStage = this.threeStage.current;
         requestAnimationFrame(this.addAnimation)
         this.cube.rotation.x += 0.01;
         this.cube.rotation.y += 0.01;
-        threeStage.renderer.render(threeStage.scene, threeStage.camera);
+        threeStage.renderer.render(threeStage.scene, this.camera);
     }
 
     render() {
