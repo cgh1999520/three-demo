@@ -7,5 +7,6 @@
 ------
 
 > 项目文件解释
-* /views/Demo1.js  // 普通的多边形渲染， 官网demo
-* /views/Demo2.js  // 渲染obj模板文件
+* /views/Demo01.js  // 普通的多边形渲染， 官网demo
+* /views/Demo02.js  // 渲染obj模板文件
+* /views/Demo03.js  // 渲染加入绚丽线条

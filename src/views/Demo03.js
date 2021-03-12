@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import {OBJLoader2} from "three/examples/jsm/loaders/OBJLoader2";
 import ThreeStage from "../component/ThreeStage";
 
-export default class Demo02 extends React.Component {
+export default class Demo03 extends React.Component {
     componentDidMount() {
         this.threeStage = this.refs.threeStage;
         const threeStage = this.threeStage;
