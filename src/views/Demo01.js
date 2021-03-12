@@ -12,16 +12,20 @@ export default class Demo01 extends React.Component {
         const threeStage = this.threeStage.current;
 
         // 设置立方体容器及参数配置
-        const geometry = new THREE.BoxGeometry();
+        const geometry = new THREE.BoxGeometry(10,10,10);
         const material = new THREE.MeshBasicMaterial({color: '#666666'});
-
-
         this.cube = new THREE.Mesh(geometry, material);
+        this.cube.position.set(0,10,0)
+        this.cube.castShadow = true;
+
         // 给场景添加内容。
         threeStage.scene.add(this.cube);
-        threeStage.camera.position.z = 2;
+
         // 把相机及场景渲染至渲染器上
         threeStage.renderer.render(threeStage.scene, threeStage.camera);
+
+        this.addAnimation = this.addAnimation.bind(this)
+        this.addAnimation();
     }
 
     /**
@@ -31,6 +35,7 @@ export default class Demo01 extends React.Component {
     addAnimation() {
         this.cube.rotation.x += 0.01;
         this.cube.rotation.y += 0.01;
+        requestAnimationFrame(this.addAnimation)
     }
 
     render() {
