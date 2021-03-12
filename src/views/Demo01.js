@@ -22,10 +22,6 @@ export default class Demo01 extends React.Component {
         threeStage.camera.position.z = 2;
         // 把相机及场景渲染至渲染器上
         threeStage.renderer.render(threeStage.scene, threeStage.camera);
-
-        // 初始化动画
-        this.addAnimation = this.addAnimation.bind(this)
-        this.addAnimation();
     }
 
     /**
@@ -33,14 +29,13 @@ export default class Demo01 extends React.Component {
      * @date 2021/1/11
      */
     addAnimation() {
-        const threeStage = this.threeStage.current;
-        requestAnimationFrame(this.addAnimation)
         this.cube.rotation.x += 0.01;
         this.cube.rotation.y += 0.01;
-        threeStage.renderer.render(threeStage.scene, this.camera);
     }
 
     render() {
-        return <ThreeStage ref="threeStage"/>
+        return <ThreeStage
+            animationBackcall={this.addAnimation}
+            ref={this.threeStage}/>
     }
 }

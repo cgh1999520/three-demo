@@ -8,5 +8,5 @@
 
 > 项目文件解释
 * /views/Demo01.js  // 普通的多边形渲染， 官网demo
-* /views/Demo02.js  // 渲染obj模板文件
-* /views/Demo03.js  // 渲染加入绚丽线条
+* /views/Demo02.js  // 渲染远程风车 obj 模型
+* /views/Demo03.js  // 渲染本地飞机 obj 模型 并添加场景颜色

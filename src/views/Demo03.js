@@ -29,19 +29,8 @@ export default class Demo03 extends React.Component {
             threeStage.scene.add(root);
         });
 
-        // 初始化动画
-        this.addAnimation = this.addAnimation.bind(this)
-        this.addAnimation();
-    }
-
-    /**
-     * @description: 添加动画
-     * @date 2021/1/11
-     */
-    addAnimation() {
-        const threeStage = this.threeStage.current;
-        requestAnimationFrame(this.addAnimation)
-        threeStage.renderer.render(threeStage.scene, threeStage.camera)
+        // 添加环境光
+        threeStage.scene.add(new THREE.AmbientLight("#red"));
     }
 
     render() {
